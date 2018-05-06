@@ -2,7 +2,6 @@
 // Use a serial midi converter program:
 // http://projectgus.github.io/hairless-midiserial/
 // http://www.spikenzielabs.com/SpikenzieLabs/Serial_MIDI.html
-
 #include <MIDI.h>
 
 uint8_t c = 0; // Column counter
@@ -117,7 +116,7 @@ void loop()
                 }
                 else
                 {
-                  MIDI.sendNoteOff(bMap[0], 0, 1); 
+                    MIDI.sendNoteOff(bMap[0], 0, 1); 
                 }
             }
             
