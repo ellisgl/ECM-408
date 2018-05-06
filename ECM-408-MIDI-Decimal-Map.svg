@@ -12,7 +12,10 @@
    version="1.1"
    id="svg1063"
    sodipodi:docname="ECM-408-MIDI-Decimal-Map.svg"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:export-filename="C:\Users\Ellis\Documents\ECM-408\ECM-408-MIDI-Decimal-Map.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
   <metadata
      id="metadata1067">
     <rdf:RDF>
@@ -21,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -40,7 +43,7 @@
      showgrid="false"
      units="mm"
      inkscape:zoom="0.76613358"
-     inkscape:cx="682.00007"
+     inkscape:cx="459.45402"
      inkscape:cy="124.93905"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
