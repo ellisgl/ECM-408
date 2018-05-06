@@ -14,14 +14,14 @@ KiCad Schematic: Schematic in KiCad...
 ECM-408-UNO-MIDI:  This uses [FortySevenEffects MIDI library](https://github.com/FortySevenEffects/arduino_midi_library/) and outputs via serial. Will need a virtual MIDI converter like, ( http://projectgus.github.io/hairless-midiserial/) or (http://www.spikenzielabs.com/SpikenzieLabs/Serial_MIDI.html). The button mapping is based around the Launchpad MK2. Compatible with the ATmega328 based Arduinos.
 
 ### TODO
-*    MIDI
-    *    Figure out what to map POTs to.
-    *    Create Mega version.
-    *    Create UNO-MIDI-USB version that uses the DFU mod.
-    *    Create Leonardo version.
-    *    Create Due version.
-*    Application controller
-    * I'm up for suggestions here. 
+* MIDI
+  * Figure out what to map POTs to.
+  * Create Mega version.
+  * Create UNO-MIDI-USB version that uses the DFU mod.
+  * Create Leonardo version.
+  * Create Due version.
+* Application controller
+  * I'm up for suggestions here. 
    
 
 
