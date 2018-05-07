@@ -1,16 +1,26 @@
+
 // MIDI Contoller that sends via serial.
 // Use a serial midi converter program:
 // http://projectgus.github.io/hairless-midiserial/
 // http://www.spikenzielabs.com/SpikenzieLabs/Serial_MIDI.html
 #include <MIDI.h>
+#include <Bounce2.h>
+
 MIDI_CREATE_DEFAULT_INSTANCE();
+
+// Instantiate a Bounce objects
+Bounce b0 = Bounce();
+Bounce b1 = Bounce();
+Bounce b2 = Bounce();
+Bounce b3 = Bounce();
+Bounce b4 = Bounce();
 
 uint8_t c = 0; // Column counter
 
 // Button Mapping
 // Based on Novation Launchpad MK2 mapping:
 // https://global.novationmusic.com/sites/default/files/novation/downloads/10529/launchpad-mk2-programmers-reference-guide_0.pdf
-uint8_t bMap[40] = {
+const uint8_t bMap[40] = {
   11, 12, 13, 14, 15, 16, 17, 18, 19, 29,
   21, 22, 23, 24, 25, 26, 27, 28, 39, 49,
   31, 32, 33, 34, 35, 36, 37, 38, 59, 69,
@@ -45,6 +55,21 @@ void setup()
 
     // Start the serial port at the MIDI baudrate (31250) and listen to all incoming messages.
     MIDI.begin(MIDI_CHANNEL_OMNI);
+
+    // Attach buttons to the Bounce instance
+    b0.attach(A0);
+    b1.attach(A1);
+    b2.attach(A2);
+    b3.attach(A3);
+    b4.attach(A4);
+    
+    // Set the debounce interval to 3 ms
+    b0.interval(3);
+    b1.interval(3);
+    b2.interval(3);
+    b3.interval(3);
+    b3.interval(3);
+    
 }
 
 void loop()
@@ -96,11 +121,11 @@ void loop()
     }
     
     // Read current values
-    cB[0] = digitalRead(A0);  
-    cB[1] = digitalRead(A1);
-    cB[2] = digitalRead(A2);
-    cB[3] = digitalRead(A3);
-    cB[4] = digitalRead(A4);
+    cB[0] = b0.read();  
+    cB[1] = b1.read();
+    cB[2] = b2.read();
+    cB[3] = b3.read();
+    cB[4] = b4.read();
     cP    = analogRead(A5);
 
     // Compare and do stuff
@@ -111,7 +136,7 @@ void loop()
             {
                 r0[0] = cB[0];
                 
-                if(cB[0] == 1)
+                if(cB[0] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[0], 127, 1);
                 }
@@ -125,7 +150,7 @@ void loop()
             {
                 r1[0] = cB[1];
                 
-                if(cB[1] == 1)
+                if(cB[1] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[10], 127, 1);
                 }
@@ -139,7 +164,7 @@ void loop()
             {
                 r2[0] = cB[2];
                                 
-                if(cB[2] == 1)
+                if(cB[2] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[20], 127, 1);
                 }
@@ -153,7 +178,7 @@ void loop()
             {
                 r3[0] = cB[3];
                                 
-                if(cB[3] == 1)
+                if(cB[3] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[30], 127, 1);
                 }
@@ -167,7 +192,7 @@ void loop()
             {
                 r4[0] = cB[4];
                                 
-                if(cB[4] == 1)
+                if(cB[4] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[8], 127, 1);
                 }
@@ -189,7 +214,7 @@ void loop()
             {
                 r0[1] = cB[0];
                                 
-                if(cB[0] == 1)
+                if(cB[0] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[1], 127, 1);
                 }
@@ -203,7 +228,7 @@ void loop()
             {
                 r1[1] = cB[1];
                                 
-                if(cB[1] == 1)
+                if(cB[1] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[11], 127, 1);
                 }
@@ -217,7 +242,7 @@ void loop()
             {
                 r2[1] = cB[2];
                                 
-                if(cB[2] == 1)
+                if(cB[2] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[21], 127, 1);
                 }
@@ -231,7 +256,7 @@ void loop()
             {
                 r3[1] = cB[3];
                                 
-                if(cB[3] == 1)
+                if(cB[3] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[31], 127, 1);
                 }
@@ -245,7 +270,7 @@ void loop()
             {
                 r4[1] = cB[4];
                                 
-                if(cB[4] == 1)
+                if(cB[4] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[9], 127, 1);
                 }
@@ -266,7 +291,7 @@ void loop()
             {
                 r0[2] = cB[0];
                                 
-                if(cB[0] == 1)
+                if(cB[0] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[2], 127, 1);
                 }
@@ -280,7 +305,7 @@ void loop()
             {
                 r1[2] = cB[1];
                                 
-                if(cB[1] == 1)
+                if(cB[1] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[12], 127, 1);
                 }
@@ -294,7 +319,7 @@ void loop()
             {
                 r2[2] = cB[2];
                                 
-                if(cB[2] == 1)
+                if(cB[2] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[22], 127, 1);
                 }
@@ -308,7 +333,7 @@ void loop()
             {
                 r3[2] = cB[3];
                                 
-                if(cB[3] == 1)
+                if(cB[3] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[32], 127, 1);
                 }
@@ -322,7 +347,7 @@ void loop()
             {
                 r4[2] = cB[4];
                                 
-                if(cB[4] == 1)
+                if(cB[4] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[18], 127, 1);
                 }
@@ -343,7 +368,7 @@ void loop()
             {
                 r0[3] = cB[0];
 
-                if(cB[0] == 1)
+                if(cB[0] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[3], 127, 1);
                 }
@@ -355,10 +380,9 @@ void loop()
             
             if(cB[1] != r1[3])
             {
-                Serial.println((String)"R1 B3:" + cB[1]);
                 r1[3] = cB[1];
                 
-                if(cB[1] == 1)
+                if(cB[1] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[13], 127, 1);
                 }
@@ -372,7 +396,7 @@ void loop()
             {
                 r2[3] = cB[2];
                 
-                if(cB[2] == 1)
+                if(cB[2] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[23], 127, 1);
                 }
@@ -386,7 +410,7 @@ void loop()
             {
                 r3[3] = cB[3];
                 
-                if(cB[3] == 1)
+                if(cB[3] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[33], 127, 1);
                 }
@@ -400,7 +424,7 @@ void loop()
             {
                 r4[3] = cB[4];
                 
-                if(cB[4] == 1)
+                if(cB[4] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[19], 127, 1);
                 }
@@ -421,7 +445,7 @@ void loop()
             {
                 r0[4] = cB[0];
                 
-                if(cB[0] == 1)
+                if(cB[0] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[4], 127, 1);
                 }
@@ -435,7 +459,7 @@ void loop()
             {
                 r1[4] = cB[1];
                 
-                if(cB[1] == 1)
+                if(cB[1] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[14], 127, 1);
                 }
@@ -449,7 +473,7 @@ void loop()
             {
                 r2[4] = cB[2];
                 
-                if(cB[2] == 1)
+                if(cB[2] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[24], 127, 1);
                 }
@@ -463,7 +487,7 @@ void loop()
             {
                 r3[4] = cB[3];
                                 
-                if(cB[3] == 1)
+                if(cB[3] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[34], 127, 1);
                 }
@@ -477,7 +501,7 @@ void loop()
             {
                 r4[4] = cB[4];
 
-                if(cB[4] == 1)
+                if(cB[4] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[28], 127, 1);
                 }
@@ -498,7 +522,7 @@ void loop()
             {
                 r0[5] = cB[0];
                 
-                if(cB[0] == 1)
+                if(cB[0] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[5], 127, 1);
                 }
@@ -512,7 +536,7 @@ void loop()
             {
                 r1[5] = cB[1];
                 
-                if(cB[1] == 1)
+                if(cB[1] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[15], 127, 1);
                 }
@@ -526,7 +550,7 @@ void loop()
             {
                 r2[5] = cB[2];
                 
-                if(cB[2] == 1)
+                if(cB[2] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[25], 127, 1);
                 }
@@ -540,7 +564,7 @@ void loop()
             {
                 r3[5] = cB[3];
                 
-                if(cB[3] == 1)
+                if(cB[3] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[35], 127, 1);
                 }
@@ -554,7 +578,7 @@ void loop()
             {
                 r4[5] = cB[4];
                 
-                if(cB[4] == 1)
+                if(cB[4] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[29], 127, 1);
                 }
@@ -575,7 +599,7 @@ void loop()
             {
                 r0[6] = cB[0];
                 
-                if(cB[0] == 1)
+                if(cB[0] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[6], 127, 1);
                 }
@@ -589,7 +613,7 @@ void loop()
             {
                 r1[6] = cB[1];
                 
-                if(cB[1] == 1)
+                if(cB[1] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[16], 127, 1);
                 }
@@ -603,7 +627,7 @@ void loop()
             {
                 r2[6] = cB[2];
                 
-                if(cB[2] == 1)
+                if(cB[2] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[26], 127, 1);
                 }
@@ -617,7 +641,7 @@ void loop()
             {
                 r3[6] = cB[3];
                 
-                if(cB[3] == 1)
+                if(cB[3] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[36], 127, 1);
                 }
@@ -631,7 +655,7 @@ void loop()
             {
                 r4[6] = cB[4];
                 
-                if(cB[4] == 1)
+                if(cB[4] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[38], 127, 1);
                 }
@@ -652,7 +676,7 @@ void loop()
             {
                 r0[7] = cB[0];
                 
-                if(cB[0] == 1)
+                if(cB[0] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[7], 127, 1);
                 }
@@ -666,7 +690,7 @@ void loop()
             {
                 r1[7] = cB[1];
                 
-                if(cB[1] == 1)
+                if(cB[1] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[17], 127, 1);
                 }
@@ -680,7 +704,7 @@ void loop()
             {
                 r2[7] = cB[2];
                 
-                if(cB[2] == 1)
+                if(cB[2] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[27], 127, 1);
                 }
@@ -694,7 +718,7 @@ void loop()
             {
                 r3[7] = cB[3];
                 
-                if(cB[3] == 1)
+                if(cB[3] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[37], 127, 1);
                 }
@@ -708,7 +732,7 @@ void loop()
             {
                 r4[7] = cB[4];
                 
-                if(cB[4] == 1)
+                if(cB[4] == HIGH)
                 {
                     MIDI.sendNoteOn(bMap[39], 127, 1);
                 }

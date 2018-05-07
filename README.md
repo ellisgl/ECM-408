@@ -28,7 +28,4 @@ ECM-408-UNO-MIDI:  This uses [FortySevenEffects MIDI library](https://github.com
   * Create Leonardo version.
   * Create Due version.
 * Application controller
-  * I'm up for suggestions here. 
-   
-
-
+  * I'm up for suggestions here.
