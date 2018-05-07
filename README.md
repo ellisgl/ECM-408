@@ -6,7 +6,7 @@ Arduino based analog and digital controller for what ever you want to do, HID, M
 ### Features
 * 40 digital inputs (24 mm OBSC-24 arcade buttons)
 * 8 analog inputs (6mm shaft 10K POTs)
-* Doesn't use 4071's or 74595's
+* Doesn't use 74xx4017s, 74xx4051s or 74xx595's
 
 ### Directories
 KiCad Schematic: Schematic in KiCad...
