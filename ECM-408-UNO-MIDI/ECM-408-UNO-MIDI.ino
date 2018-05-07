@@ -119,6 +119,12 @@ void loop()
     }
 
     // Read current values
+    b0.update();
+    b1.update();
+    b2.update();
+    b3.update();
+    b4.update();
+
     cB[0] = b0.read();
     cB[1] = b1.read();
     cB[2] = b2.read();
