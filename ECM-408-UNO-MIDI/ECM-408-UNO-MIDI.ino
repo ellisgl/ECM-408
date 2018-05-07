@@ -1,7 +1,6 @@
 // MIDI Contoller that sends via serial.
 // Use a serial midi converter program:
 // http://projectgus.github.io/hairless-midiserial/
-// http://www.spikenzielabs.com/SpikenzieLabs/Serial_MIDI.html
 #include <MIDI.h>
 #include <Bounce2.h>
 
@@ -60,6 +59,9 @@ void setup()
 
     // Start the serial port at the MIDI baudrate (31250) and listen to all incoming messages.
     MIDI.begin(MIDI_CHANNEL_OMNI);
+
+    // Change baud rate to 115200 - Hairless doesn't do 31250.
+    Serial.begin(115200);
 
     // Attach buttons to the Bounce instance
     b0.attach(A0);
@@ -136,7 +138,9 @@ void loop()
     cB[2] = b2.read();
     cB[3] = b3.read();
     cB[4] = b4.read();
-    cP    = map(analogRead(A5), 0, 1023, 0, 127); // Scale POT value to 0-127
+    
+    // Read and scale analog value to 0-127
+    cP    = map(analogRead(A5), 0, 1023, 0, 127);
 
     // Compare and do stuff
     switch(c)
