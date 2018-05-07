@@ -22,7 +22,6 @@ ECM-408-UNO-MIDI:  This uses [FortySevenEffects MIDI library](https://github.com
 
 ### TODO
 * MIDI
-  * Figure out what to map POTs to.
   * Create Mega version.
   * Create UNO-MIDI-USB version that uses the DFU mod.
   * Create Leonardo version.
