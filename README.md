@@ -11,7 +11,7 @@ Arduino based analog and digital controller for what ever you want to do, HID, M
 ### Directories
 KiCad Schematic: Schematic in KiCad...
 
-ECM-408-UNO-MIDI:  This uses [FortySevenEffects MIDI library](https://github.com/FortySevenEffects/arduino_midi_library/) and outputs via serial. Will need a virtual MIDI converter like [Hairless MIDI to Serial Bridge](http://projectgus.github.io/hairless-midiserial/). The button mapping is based around the Launchpad MK2. Compatible with the ATmega328 based Arduinos.
+ECM-408-UNO-MIDI:  This uses [FortySevenEffects MIDI library](https://github.com/FortySevenEffects/arduino_midi_library/) and outputs via serial. Will need a virtual MIDI converter like [Hairless MIDI to Serial Bridge](http://projectgus.github.io/hairless-midiserial/). Compatible with the ATmega328 based Arduinos.
 
 ### Parts
 * Push buttons (x 40)
