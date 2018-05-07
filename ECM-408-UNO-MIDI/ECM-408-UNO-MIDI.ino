@@ -20,10 +20,16 @@ uint8_t c = 0; // Column counter
 // Based on Novation Launchpad MK2 mapping:
 // https://global.novationmusic.com/sites/default/files/novation/downloads/10529/launchpad-mk2-programmers-reference-guide_0.pdf
 const uint8_t bMap[40] = {
-  11, 12, 13, 14, 15, 16, 17, 18, 19, 29,
-  21, 22, 23, 24, 25, 26, 27, 28, 39, 49,
-  31, 32, 33, 34, 35, 36, 37, 38, 59, 69,
-  41, 42, 43, 44, 45, 46, 47, 48, 79, 89
+    11, 12, 13, 14, 15, 16, 17, 18, 19, 29,
+    21, 22, 23, 24, 25, 26, 27, 28, 39, 49,
+    31, 32, 33, 34, 35, 36, 37, 38, 59, 69,
+    41, 42, 43, 44, 45, 46, 47, 48, 79, 89
+};
+
+// Potentiometer control change (CC) mapping:
+// http://nickfever.com/music/midi-cc-list
+const uint8_t pMap[8] ={
+    102, 103, 104, 105, 106, 107, 108, 109
 };
 
 // Previous button states (Row values)
@@ -130,7 +136,7 @@ void loop()
     cB[2] = b2.read();
     cB[3] = b3.read();
     cB[4] = b4.read();
-    cP    = analogRead(A5);
+    cP    = map(analogRead(A5), 0, 1023, 0, 127); // Scale POT value to 0-127
 
     // Compare and do stuff
     switch(c)
@@ -210,6 +216,8 @@ void loop()
             if(cP != pP[0])
             {
                 pP[0] = cP;
+
+                MIDI.sendControlChange(pMap[0], cP, 1);
             }
         break;
 
@@ -287,6 +295,8 @@ void loop()
             if(cP != pP[1])
             {
                 pP[1] = cP;
+
+                MIDI.sendControlChange(pMap[1], cP, 1);
             }
         break;
 
@@ -364,6 +374,8 @@ void loop()
             if(cP != pP[2])
             {
                 pP[2] = cP;
+
+                MIDI.sendControlChange(pMap[2], cP, 1);
             }
         break;
 
@@ -441,6 +453,8 @@ void loop()
             if(cP != pP[3])
             {
                 pP[3] = cP;
+
+                MIDI.sendControlChange(pMap[3], cP, 1);
             }
         break;
 
@@ -518,6 +532,8 @@ void loop()
             if(cP != pP[4])
             {
                 pP[4] = cP;
+
+                MIDI.sendControlChange(pMap[4], cP, 1);
             }
         break;
 
@@ -595,6 +611,8 @@ void loop()
             if(cP != pP[5])
             {
                 pP[5] = cP;
+
+                MIDI.sendControlChange(pMap[5], cP, 1);
             }
         break;
 
@@ -672,6 +690,8 @@ void loop()
             if(cP != pP[6])
             {
                 pP[6] = cP;
+
+                MIDI.sendControlChange(pMap[6], cP, 1);
             }
         break;
 
@@ -749,6 +769,8 @@ void loop()
             if(cP != pP[7])
             {
                 pP[7] = cP;
+
+                MIDI.sendControlChange(pMap[7], cP, 1);
             }
         break;
     }
