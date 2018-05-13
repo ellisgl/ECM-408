@@ -6,25 +6,22 @@ Arduino based analog and digital controller for what ever you want to do, HID, M
 ### Features
 * 40 digital inputs (24 mm OBSC-24 arcade buttons)
 * 8 analog inputs (6mm shaft 10K POTs)
-* Doesn't use 74xx4017s, 74xx4051s or 74xx595's
 
-### Directories
-KiCad Schematic: Schematic in KiCad...
-
-ECM-408-UNO-MIDI:  This uses [FortySevenEffects MIDI library](https://github.com/FortySevenEffects/arduino_midi_library/) and outputs via serial. Will need a virtual MIDI converter like [Hairless MIDI to Serial Bridge](http://projectgus.github.io/hairless-midiserial/). Compatible with the ATmega328 based Arduinos.
 
 ### Parts
 * Push buttons (x 40)
 * 10K POTs (x 8)
-* 1N4148 diodes (x 8)
 * Wire
-* Microcontroller board with at least 6 analog ports and 8 digital ports.
+* Microcontroller board with at least 1 analog port and 11 digital ports.
+
+# After simple tests and some rethinking, all this will be changing soon. 
+### Directories
+~~KiCad Schematic: Schematic in KiCad...~~
+
+~~ECM-408-UNO-MIDI:  This uses [FortySevenEffects MIDI library](https://github.com/FortySevenEffects/arduino_midi_library/) and outputs via serial. Will need a virtual MIDI converter like [Hairless MIDI to Serial Bridge](http://projectgus.github.io/hairless-midiserial/). Compatible with the ATmega328 based Arduinos.~~
 
 ### TODO
-* MIDI
-  * Create Mega version.
-  * Create UNO-MIDI-USB version that uses the DFU mod.
-  * Create Leonardo version.
-  * Create Due version.
-* Application controller
-  * I'm up for suggestions here.
+* Create Mega version.
+* Create UNO-MIDI-USB version that uses the DFU mod.
+* Create Leonardo version.
+* Create Due version.
