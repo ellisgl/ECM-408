@@ -12,7 +12,7 @@ Arduino based analog and digital controller for what ever you want to do, HID, M
 * Push buttons (x 40)
 * 10K POTs (x 8)
 * Wire
-* Microcontroller board with at least 1 analog port and 11 digital ports.
+* Microcontroller board with at least 1 analog port and 5 digital ports.
 
 # After simple tests and some rethinking, all this will be changing soon. 
 ### Directories
