@@ -139,311 +139,631 @@ void loop()
         case 0:
             if(cB[0] != pB[0])
             {
-                Serial.println((String)"RO B0:" + cB[0]);
-                r0[0] = cB[0];
-            }
-            
-            if(cB[1] != pB[0])
-            {
-                Serial.println((String)"R1 B0:" + cB[1]);
-                r1[0] = cB[1];
-            }
-            
-            if(cB[2] != pB[0])
-            {
-                Serial.println((String)"R2 B0:" + cB[2]);
-                r2[0] = cB[2];
-            }
-            
-            if(cB[3] != r3[0])
-            {
-                Serial.println((String)"R3 B0:" + cB[3]);
-                r3[0] = cB[3];
+                if(cB[0] == LOW)
+                {
+                    Serial.println((String)"Button 0 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 0 is off.");
+                }
+
+                pB[0] = cB[0];
             }
 
-            if(cB[4] != r4[0])
+            if(cB[1] != pB[8])
             {
-                Serial.println((String)"R4 B0:" + cB[4]);
-                r4[0] = cB[4];
+                if(cB[1] == LOW)
+                {
+                    Serial.println((String)"Button 8 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 8 is off.");
+                }
+
+                pB[8] = cB[1];
+            }
+
+            if(cB[2] != pB[16])
+            {
+                if(cB[2] == LOW)
+                {
+                    Serial.println((String)"Button 16 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 16 is off.");
+                }
+
+                pB[16] = cB[2];
+            }
+
+            if(cB[3] != pB[24])
+            {
+                if(cB[3] == LOW)
+                {
+                    Serial.println((String)"Button 24 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 24 is off.");
+                }
+
+                pB[24] = cB[3];
+            }
+
+            if(cB[4] != pB[32])
+            {
+                if(cB[4] == LOW)
+                {
+                    Serial.println((String)"Button 32 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 32 is off.");
+                }
+
+                pB[32] = cB[4];
             }
 
             if(cP != pP[0])
             {
-                Serial.println((String)"P0 changed from: " + pP[0] + " to:" + cP);
-                
+                Serial.println((String)"P7 changed from: " + pP[0] + " to:" + cP);
+
                 pP[0] = cP;
             }
         break;
-        
+
         case 1:
-            if(cB[0] != r0[1])
+            if(cB[0] != pB[1])
             {
-                Serial.println((String)"RO B1:" + cB[0]);
-                r0[1] = cB[0];
-            }
-            
-            if(cB[1] != r1[1])
-            {
-                Serial.println((String)"R1 B1:" + cB[1]);
-                r1[1] = cB[1];
-            }
-            
-            if(cB[2] != r2[1])
-            {
-                Serial.println((String)"R2 B1:" + cB[2]);
-                r2[1] = cB[2];
-            }
-            
-            if(cB[3] != r3[1])
-            {
-                Serial.println((String)"R3 B1:" + cB[3]);
-                r3[1] = cB[3];
+                if(cB[0] == LOW)
+                {
+                    Serial.println((String)"Button 1 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 1 is off.");
+                }
+
+                pB[1] = cB[0];
             }
 
-            if(cB[4] != r4[1])
+            if(cB[1] != pB[9])
             {
-                Serial.println((String)"R4 B1:" + cB[4]);
-                r4[1] = cB[4];
+                if(cB[1] == LOW)
+                {
+                    Serial.println((String)"Button 9 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 9 is off.");
+                }
+
+                pB[9] = cB[1];
+            }
+
+            if(cB[2] != pB[17])
+            {
+                if(cB[2] == LOW)
+                {
+                    Serial.println((String)"Button 17 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 17 is off.");
+                }
+
+                pB[17] = cB[2];
+            }
+
+            if(cB[3] != pB[25])
+            {
+                if(cB[3] == LOW)
+                {
+                    Serial.println((String)"Button 25 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 25 is off.");
+                }
+
+                pB[25] = cB[3];
+            }
+
+            if(cB[4] != pB[33])
+            {
+                if(cB[4] == LOW)
+                {
+                    Serial.println((String)"Button 33 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 33 is off.");
+                }
+
+                pB[33] = cB[4];
             }
 
             if(cP != pP[1])
             {
-                Serial.println((String)"P1 changed from: " + pP[1] + " to:" + cP);
-                
+                Serial.println((String)"P7 changed from: " + pP[1] + " to:" + cP);
+
                 pP[1] = cP;
             }
         break;
 
         case 2:
-            if(cB[0] != r0[2])
+            if(cB[0] != pB[2])
             {
-                Serial.println((String)"RO B2:" + cB[0]);
-                r0[2] = cB[0];
-            }
-            
-            if(cB[1] != r1[2])
-            {
-                Serial.println((String)"R1 B2:" + cB[1]);
-                r1[2] = cB[1];
-            }
-            
-            if(cB[2] != r2[2])
-            {
-                Serial.println((String)"R2 B2:" + cB[2]);
-                r2[2] = cB[2];
-            }
-            
-            if(cB[3] != r3[2])
-            {
-                Serial.println((String)"R3 B2:" + cB[3]);
-                r3[2] = cB[3];
+                if(cB[0] == LOW)
+                {
+                    Serial.println((String)"Button 2 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 2 is off.");
+                }
+
+                pB[2] = cB[0];
             }
 
-            if(cB[4] != r4[2])
+            if(cB[1] != pB[10])
             {
-                Serial.println((String)"R4 B2:" + cB[4]);
-                r4[2] = cB[4];
+                if(cB[1] == LOW)
+                {
+                    Serial.println((String)"Button 10 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 10 is off.");
+                }
+
+                pB[10] = cB[1];
+            }
+
+            if(cB[2] != pB[18])
+            {
+                if(cB[2] == LOW)
+                {
+                    Serial.println((String)"Button 18 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 18 is off.");
+                }
+
+                pB[18] = cB[2];
+            }
+
+            if(cB[3] != pB[26])
+            {
+                if(cB[3] == LOW)
+                {
+                    Serial.println((String)"Button 26 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 26 is off.");
+                }
+
+                pB[26] = cB[3];
+            }
+
+            if(cB[4] != pB[34])
+            {
+                if(cB[4] == LOW)
+                {
+                    Serial.println((String)"Button 34 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 34 is off.");
+                }
+
+                pB[34] = cB[4];
             }
 
             if(cP != pP[2])
             {
-                Serial.println((String)"P2 changed from: " + pP[2] + " to:" + cP);
-                
+                Serial.println((String)"P7 changed from: " + pP[2] + " to:" + cP);
+
                 pP[2] = cP;
             }
         break;
 
         case 3:
-            if(cB[0] != r0[3])
+            if(cB[0] != pB[3])
             {
-                Serial.println((String)"RO B3:" + cB[0]);
-                r0[3] = cB[0];
-            }
-            
-            if(cB[1] != r1[3])
-            {
-                Serial.println((String)"R1 B3:" + cB[1]);
-                r1[3] = cB[1];
-            }
-            
-            if(cB[2] != r2[3])
-            {
-                Serial.println((String)"R2 B3:" + cB[2]);
-                r2[3] = cB[2];
-            }
-            
-            if(cB[3] != r3[3])
-            {
-                Serial.println((String)"R3 B3:" + cB[3]);
-                r3[3] = cB[3];
+                if(cB[0] == LOW)
+                {
+                    Serial.println((String)"Button 3 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 3 is off.");
+                }
+
+                pB[3] = cB[0];
             }
 
-            if(cB[4] != r4[3])
+            if(cB[1] != pB[11])
             {
-                Serial.println((String)"R4 B3:" + cB[4]);
-                r4[3] = cB[4];
+                if(cB[1] == LOW)
+                {
+                    Serial.println((String)"Button 11 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 11 is off.");
+                }
+
+                pB[11] = cB[1];
+            }
+
+            if(cB[2] != pB[19])
+            {
+                if(cB[2] == LOW)
+                {
+                    Serial.println((String)"Button 19 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 19 is off.");
+                }
+
+                pB[19] = cB[2];
+            }
+
+            if(cB[3] != pB[27])
+            {
+                if(cB[3] == LOW)
+                {
+                    Serial.println((String)"Button 27 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 27 is off.");
+                }
+
+                pB[27] = cB[3];
+            }
+
+            if(cB[4] != pB[35])
+            {
+                if(cB[4] == LOW)
+                {
+                    Serial.println((String)"Button 35 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 35 is off.");
+                }
+
+                pB[35] = cB[4];
             }
 
             if(cP != pP[3])
             {
-                Serial.println((String)"P3 changed from: " + pP[3] + " to:" + cP);
-                
+                Serial.println((String)"P7 changed from: " + pP[3] + " to:" + cP);
+
                 pP[3] = cP;
             }
         break;
-        
+
         case 4:
-            if(cB[0] != r0[4])
+            if(cB[0] != pB[4])
             {
-                Serial.println((String)"RO B4:" + cB[0]);
-                r0[4] = cB[0];
-            }
-            
-            if(cB[1] != r1[4])
-            {
-                Serial.println((String)"R1 B4:" + cB[1]);
-                r1[4] = cB[1];
-            }
-            
-            if(cB[2] != r2[4])
-            {
-                Serial.println((String)"R2 B4:" + cB[2]);
-                r2[4] = cB[2];
-            }
-            
-            if(cB[3] != r3[4])
-            {
-                Serial.println((String)"R3 B4:" + cB[3]);
-                r3[4] = cB[3];
+                if(cB[0] == LOW)
+                {
+                    Serial.println((String)"Button 4 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 4 is off.");
+                }
+
+                pB[4] = cB[0];
             }
 
-            if(cB[4] != r4[4])
+            if(cB[1] != pB[12])
             {
-                Serial.println((String)"R4 B4:" + cB[4]);
-                r4[4] = cB[4];
+                if(cB[1] == LOW)
+                {
+                    Serial.println((String)"Button 12 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 12 is off.");
+                }
+
+                pB[12] = cB[1];
+            }
+
+            if(cB[2] != pB[20])
+            {
+                if(cB[2] == LOW)
+                {
+                    Serial.println((String)"Button 20 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 20 is off.");
+                }
+
+                pB[20] = cB[2];
+            }
+
+            if(cB[3] != pB[28])
+            {
+                if(cB[3] == LOW)
+                {
+                    Serial.println((String)"Button 28 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 28 is off.");
+                }
+
+                pB[28] = cB[3];
+            }
+
+            if(cB[4] != pB[36])
+            {
+                if(cB[4] == LOW)
+                {
+                    Serial.println((String)"Button 36 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 36 is off.");
+                }
+
+                pB[36] = cB[4];
             }
 
             if(cP != pP[4])
             {
-                Serial.println((String)"P4 changed from: " + pP[4] + " to:" + cP);
-                
+                Serial.println((String)"P7 changed from: " + pP[4] + " to:" + cP);
+
                 pP[4] = cP;
             }
         break;
-        
+
         case 5:
-            if(cB[0] != r0[5])
+            if(cB[0] != pB[5])
             {
-                Serial.println((String)"RO B5:" + cB[0]);
-                r0[5] = cB[0];
-            }
-            
-            if(cB[1] != r1[5])
-            {
-                Serial.println((String)"R1 B5:" + cB[1]);
-                r1[5] = cB[1];
-            }
-            
-            if(cB[2] != r2[5])
-            {
-                Serial.println((String)"R2 B5:" + cB[2]);
-                r2[5] = cB[2];
-            }
-            
-            if(cB[3] != r3[5])
-            {
-                Serial.println((String)"R3 B5:" + cB[3]);
-                r3[5] = cB[3];
+                if(cB[0] == LOW)
+                {
+                    Serial.println((String)"Button 5 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 5 is off.");
+                }
+
+                pB[5] = cB[0];
             }
 
-            if(cB[4] != r4[5])
+            if(cB[1] != pB[13])
             {
-                Serial.println((String)"R4 B5:" + cB[4]);
-                r4[5] = cB[4];
+                if(cB[1] == LOW)
+                {
+                    Serial.println((String)"Button 13 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 13 is off.");
+                }
+
+                pB[13] = cB[1];
+            }
+
+            if(cB[2] != pB[21])
+            {
+                if(cB[2] == LOW)
+                {
+                    Serial.println((String)"Button 21 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 21 is off.");
+                }
+
+                pB[21] = cB[2];
+            }
+
+            if(cB[3] != pB[29])
+            {
+                if(cB[3] == LOW)
+                {
+                    Serial.println((String)"Button 29 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 29 is off.");
+                }
+
+                pB[29] = cB[3];
+            }
+
+            if(cB[4] != pB[37])
+            {
+                if(cB[4] == LOW)
+                {
+                    Serial.println((String)"Button 37 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 37 is off.");
+                }
+
+                pB[37] = cB[4];
             }
 
             if(cP != pP[5])
             {
-                Serial.println((String)"P5 changed from: " + pP[5] + " to:" + cP);
-                
+                Serial.println((String)"P7 changed from: " + pP[5] + " to:" + cP);
+
                 pP[5] = cP;
             }
         break;
-        
+
         case 6:
-            if(cB[0] != r0[6])
+            if(cB[0] != pB[6])
             {
-                Serial.println((String)"RO B6:" + cB[0]);
-                r0[6] = cB[0];
-            }
-            
-            if(cB[1] != r1[6])
-            {
-                Serial.println((String)"R1 B6:" + cB[1]);
-                r1[6] = cB[1];
-            }
-            
-            if(cB[2] != r2[6])
-            {
-                Serial.println((String)"R2 B6:" + cB[2]);
-                r2[6] = cB[2];
-            }
-            
-            if(cB[3] != r3[6])
-            {
-                Serial.println((String)"R3 B6:" + cB[3]);
-                r3[6] = cB[3];
+                if(cB[0] == LOW)
+                {
+                    Serial.println((String)"Button 6 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 6 is off.");
+                }
+
+                pB[6] = cB[0];
             }
 
-            if(cB[4] != r4[6])
+            if(cB[1] != pB[14])
             {
-                Serial.println((String)"R4 B6:" + cB[4]);
-                r4[6] = cB[4];
+                if(cB[1] == LOW)
+                {
+                    Serial.println((String)"Button 14 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 14 is off.");
+                }
+
+                pB[14] = cB[1];
+            }
+
+            if(cB[2] != pB[22])
+            {
+                if(cB[2] == LOW)
+                {
+                    Serial.println((String)"Button 22 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 22 is off.");
+                }
+
+                pB[22] = cB[2];
+            }
+
+            if(cB[3] != pB[30])
+            {
+                if(cB[3] == LOW)
+                {
+                    Serial.println((String)"Button 30 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 30 is off.");
+                }
+
+                pB[30] = cB[3];
+            }
+
+            if(cB[4] != pB[38])
+            {
+                if(cB[4] == LOW)
+                {
+                    Serial.println((String)"Button 38 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 38 is off.");
+                }
+
+                pB[38] = cB[4];
             }
 
             if(cP != pP[6])
             {
-                Serial.println((String)"P6 changed from: " + pP[6] + " to:" + cP);
-                
+                Serial.println((String)"P7 changed from: " + pP[6] + " to:" + cP);
+
                 pP[6] = cP;
             }
         break;
-       
+
         case 7:
-            if(cB[0] != r0[7])
+            if(cB[0] != pB[7])
             {
-                Serial.println((String)"RO B7:" + cB[0]);
-                r0[7] = cB[0];
-            }
-            
-            if(cB[1] != r1[7])
-            {
-                Serial.println((String)"R1 B7:" + cB[1]);
-                r1[7] = cB[1];
-            }
-            
-            if(cB[2] != r2[7])
-            {
-                Serial.println((String)"R2 B7:" + cB[2]);
-                r2[7] = cB[2];
-            }
-            
-            if(cB[3] != r3[7])
-            {
-                Serial.println((String)"R3 B7:" + cB[3]);
-                r3[7] = cB[3];
+                if(cB[0] == LOW)
+                {
+                    Serial.println((String)"Button 7 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 7 is off.");
+                }
+
+                pB[7] = cB[0];
             }
 
-            if(cB[4] != r4[7])
+            if(cB[1] != pB[15])
             {
-                Serial.println((String)"R4 B7:" + cB[4]);
-                r4[7] = cB[4];
+                if(cB[1] == LOW)
+                {
+                    Serial.println((String)"Button 15 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 15 is off.");
+                }
+
+                pB[15] = cB[1];
+            }
+
+            if(cB[2] != pB[23])
+            {
+                if(cB[2] == LOW)
+                {
+                    Serial.println((String)"Button 23 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 23 is off.");
+                }
+
+                pB[23] = cB[2];
+            }
+
+            if(cB[3] != pB[31])
+            {
+                if(cB[3] == LOW)
+                {
+                    Serial.println((String)"Button 31 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 31 is off.");
+                }
+
+                pB[31] = cB[3];
+            }
+
+            if(cB[4] != pB[39])
+            {
+                if(cB[4] == LOW)
+                {
+                    Serial.println((String)"Button 39 is on.");
+                }
+                else
+                {
+                    Serial.println((String)"Button 39 is off.");
+                }
+
+                pB[39] = cB[4];
             }
 
             if(cP != pP[7])
             {
                 Serial.println((String)"P7 changed from: " + pP[7] + " to:" + cP);
-                
+
                 pP[7] = cP;
             }
         break;
