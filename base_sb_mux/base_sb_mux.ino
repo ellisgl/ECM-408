@@ -1,25 +1,34 @@
 // EMC-408 for smaller boards (Uno and the like)
 // Uses an 8x8 analog mux made from 4051's
 // https://github.com/ellisgl/analog-multiplexer-8x8
-uint8_t c = 0; // Column counter
+// Include debounce library.
+#include <Bounce2.h>
 
-// Previous button states (By row)
-bool r0[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-bool r1[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-bool r2[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-bool r3[8] = {0, 0, 0, 0, 0, 0, 0, 0}; 
-bool r4[8] = {0, 0, 0, 0, 0, 0, 0, 0}; 
-// Continue to r6[8] if you are looking to expand 
-// buttons by another 2 rows of 8
-// Continue to r7[8] if you don't need analog
-// and remove pP[8] and cP
+// Instantiate the Bounce objects
+Bounce b0 = Bounce();
+Bounce b1 = Bounce();
+Bounce b2 = Bounce();
+Bounce b3 = Bounce();
+Bounce b4 = Bounce();
+
+// Column counter
+uint8_t c   = 0; 
+
+// Previous button states.
+bool pB[40] = {
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 
+  0, 0, 0, 0, 0, 0, 0, 0
+}; 
 
 //Previous POT states
-int pP[8]  = {0, 0, 0, 0, 0, 0, 0, 0};
+int pP[8]   = {0, 0, 0, 0, 0, 0, 0, 0};
 
 // Current states
-bool cB[5] = {0, 0, 0, 0, 0};
-int cP     = 0;
+bool cB[5]  = {0, 0, 0, 0, 0};
+int cP      = 0;
 
 void setup()
 {
@@ -29,21 +38,32 @@ void setup()
     pinMode(4, INPUT_PULLUP);
     pinMode(5, INPUT_PULLUP);
     pinMode(6, INPUT_PULLUP);
-    pinMode(7, INPUT_PULLUP);
-    pinMode(8, INPUT_PULLUP);
-    pinMode(9, INPUT_PULLUP);
-    pinMode(10, INPUT_PULLUP);
 
     // Address select
     pinMode(11, OUTPUT); // A
     pinMode(12, OUTPUT); // B
     pinMode(13, OUTPUT); // C
 
+    // Attach buttons to the Bounce instance
+    b0.attach(2);
+    b1.attach(3);
+    b2.attach(4);
+    b3.attach(5);
+    b4.attach(6);
+
+    // Set the debounce interval to 3 ms
+    b0.interval(3);
+    b1.interval(3);
+    b2.interval(3);
+    b3.interval(3);
+    b4.interval(3);
+    
     // Start serial
     Serial.begin(115200);
 }
 
-void loop() {
+void loop()
+{
     // Enable a column
     switch(c)
     {
@@ -96,31 +116,40 @@ void loop() {
         break;
     }
 
-    // Read current values
-    cB[0] = digitalRead(2);
-    cB[1] = digitalRead(3);
-    cB[2] = digitalRead(4);
-    cB[3] = digitalRead(5);
-    cB[4] = digitalRead(6);
+
+    // Update value from bounce library.
+    b0.update();
+    b1.update();
+    b2.update();
+    b3.update();
+    b4.update();
+
+    // Read the value into current values.
+    cB[0] = b0.read();
+    cB[1] = b1.read();
+    cB[2] = b2.read();
+    cB[3] = b3.read();
+    cB[4] = b4.read();
+    
     cP    = analogRead(A5);
 
     // Compare and do stuff
     switch(c)
     {
         case 0:
-            if(cB[0] != r0[0])
+            if(cB[0] != pB[0])
             {
                 Serial.println((String)"RO B0:" + cB[0]);
                 r0[0] = cB[0];
             }
             
-            if(cB[1] != r1[0])
+            if(cB[1] != pB[0])
             {
                 Serial.println((String)"R1 B0:" + cB[1]);
                 r1[0] = cB[1];
             }
             
-            if(cB[2] != r2[0])
+            if(cB[2] != pB[0])
             {
                 Serial.println((String)"R2 B0:" + cB[2]);
                 r2[0] = cB[2];
@@ -140,7 +169,8 @@ void loop() {
 
             if(cP != pP[0])
             {
-                Serial.println((String)"P0:" + cP);
+                Serial.println((String)"P0 changed from: " + pP[0] + " to:" + cP);
+                
                 pP[0] = cP;
             }
         break;
@@ -178,7 +208,8 @@ void loop() {
 
             if(cP != pP[1])
             {
-                Serial.println((String)"P1:" + cP);
+                Serial.println((String)"P1 changed from: " + pP[1] + " to:" + cP);
+                
                 pP[1] = cP;
             }
         break;
@@ -216,7 +247,8 @@ void loop() {
 
             if(cP != pP[2])
             {
-                Serial.println((String)"P2:" + cP);
+                Serial.println((String)"P2 changed from: " + pP[2] + " to:" + cP);
+                
                 pP[2] = cP;
             }
         break;
@@ -254,7 +286,8 @@ void loop() {
 
             if(cP != pP[3])
             {
-                Serial.println((String)"P3:" + cP);
+                Serial.println((String)"P3 changed from: " + pP[3] + " to:" + cP);
+                
                 pP[3] = cP;
             }
         break;
@@ -292,7 +325,8 @@ void loop() {
 
             if(cP != pP[4])
             {
-                Serial.println((String)"P4:" + cP);
+                Serial.println((String)"P4 changed from: " + pP[4] + " to:" + cP);
+                
                 pP[4] = cP;
             }
         break;
@@ -330,7 +364,8 @@ void loop() {
 
             if(cP != pP[5])
             {
-                Serial.println((String)"P5:" + cP);
+                Serial.println((String)"P5 changed from: " + pP[5] + " to:" + cP);
+                
                 pP[5] = cP;
             }
         break;
@@ -368,7 +403,8 @@ void loop() {
 
             if(cP != pP[6])
             {
-                Serial.println((String)"P6:" + cP);
+                Serial.println((String)"P6 changed from: " + pP[6] + " to:" + cP);
+                
                 pP[6] = cP;
             }
         break;
@@ -406,7 +442,8 @@ void loop() {
 
             if(cP != pP[7])
             {
-                Serial.println((String)"P7:" + cP);
+                Serial.println((String)"P7 changed from: " + pP[7] + " to:" + cP);
+                
                 pP[7] = cP;
             }
         break;
