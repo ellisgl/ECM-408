@@ -209,7 +209,7 @@ void loop()
 
             if(cP != pP[0])
             {
-                Serial.println((String)"P7 changed from: " + pP[0] + " to:" + cP);
+                Serial.println((String)"P0 changed from: " + pP[0] + " to:" + cP);
 
                 pP[0] = cP;
             }
@@ -288,7 +288,7 @@ void loop()
 
             if(cP != pP[1])
             {
-                Serial.println((String)"P7 changed from: " + pP[1] + " to:" + cP);
+                Serial.println((String)"P1 changed from: " + pP[1] + " to:" + cP);
 
                 pP[1] = cP;
             }
@@ -367,7 +367,7 @@ void loop()
 
             if(cP != pP[2])
             {
-                Serial.println((String)"P7 changed from: " + pP[2] + " to:" + cP);
+                Serial.println((String)"P2 changed from: " + pP[2] + " to:" + cP);
 
                 pP[2] = cP;
             }
@@ -446,7 +446,7 @@ void loop()
 
             if(cP != pP[3])
             {
-                Serial.println((String)"P7 changed from: " + pP[3] + " to:" + cP);
+                Serial.println((String)"P3 changed from: " + pP[3] + " to:" + cP);
 
                 pP[3] = cP;
             }
@@ -525,7 +525,7 @@ void loop()
 
             if(cP != pP[4])
             {
-                Serial.println((String)"P7 changed from: " + pP[4] + " to:" + cP);
+                Serial.println((String)"P4 changed from: " + pP[4] + " to:" + cP);
 
                 pP[4] = cP;
             }
@@ -604,7 +604,7 @@ void loop()
 
             if(cP != pP[5])
             {
-                Serial.println((String)"P7 changed from: " + pP[5] + " to:" + cP);
+                Serial.println((String)"P5 changed from: " + pP[5] + " to:" + cP);
 
                 pP[5] = cP;
             }
@@ -683,7 +683,7 @@ void loop()
 
             if(cP != pP[6])
             {
-                Serial.println((String)"P7 changed from: " + pP[6] + " to:" + cP);
+                Serial.println((String)"P6 changed from: " + pP[6] + " to:" + cP);
 
                 pP[6] = cP;
             }
