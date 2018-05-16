@@ -24,6 +24,8 @@ midi_serial_lb: Serial MIDI controller version of base_lb.
 
 ### TODO
 * Schematics for the two main types.
+* Update diagrams for default button map.
+* Add a Row / Column mapping image.
 * Create HID versions.
 * Create a hardware debounced versions - will involve a seperate CPLD project done in Verilog.
 * Maybe move the mapping into their own file?
