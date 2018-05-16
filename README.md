@@ -13,15 +13,17 @@ Arduino based analog and digital controller for what ever you want to do, HID, M
 * 10K POTs (x 8)
 * Wire
 * Microcontroller board with at least 1 analog port and 5 digital ports.
+* 8x8 74xx4051 mux (x 1 if using a small board) (https://github.com/ellisgl/analog-multiplexer-8x8)
 
 # After simple tests and some rethinking, all this will be changing soon. 
 ### Directories
-~~KiCad Schematic: Schematic in KiCad...~~
-
-~~ECM-408-UNO-MIDI:  This uses [FortySevenEffects MIDI library](https://github.com/FortySevenEffects/arduino_midi_library/) and outputs via serial. Will need a virtual MIDI converter like [Hairless MIDI to Serial Bridge](http://projectgus.github.io/hairless-midiserial/). Compatible with the ATmega328 based Arduinos.~~
+base_sb_mux: Base code that works with the smaller Arduino boards (Uno and such). Uses an 8x8 multiplexer.
+base_lb: Base code that works with the larger Arduino boards (Mega and such). No mux needed.
+midi_serial_sb_mux: Serial MIDI controller version of base_sb_mux.
+midi_serial_lb: Serial MIDI controller version of base_lb.
 
 ### TODO
-* Create Mega version.
-* Create UNO-MIDI-USB version that uses the DFU mod.
-* Create Leonardo version.
-* Create Due version.
+* Schematics for the two main types.
+* Create HID versions.
+* Create a hardware debounced versions - will involve a seperate CPLD project done in Verilog.
+* Maybe move the mapping into their own file?
