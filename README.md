@@ -15,7 +15,6 @@ Arduino based analog and digital controller for what ever you want to do, HID, M
 * Microcontroller board with at least 1 analog port and 5 digital ports.
 * 8x8 74xx4051 mux (x 1 if using a small board) (https://github.com/ellisgl/analog-multiplexer-8x8)
 
-# After simple tests and some rethinking, all this will be changing soon. 
 ### Directories
 base_sb_mux: Base code that works with the smaller Arduino boards (Uno and such). Uses an 8x8 multiplexer.
 base_lb: Base code that works with the larger Arduino boards (Mega and such). No mux needed.
