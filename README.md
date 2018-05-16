@@ -17,8 +17,11 @@ Arduino based analog and digital controller for what ever you want to do, HID, M
 
 ### Directories
 base_sb_mux: Base code that works with the smaller Arduino boards (Uno and such). Uses an 8x8 multiplexer.
+
 base_lb: Base code that works with the larger Arduino boards (Mega and such). No mux needed.
+
 midi_serial_sb_mux: Serial MIDI controller version of base_sb_mux.
+
 midi_serial_lb: Serial MIDI controller version of base_lb.
 
 ### TODO
