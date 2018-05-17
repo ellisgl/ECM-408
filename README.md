@@ -3,7 +3,7 @@ ECM-408 (Electronic Control Module 40 buttons 8 pots)
 
 Arduino based analog and digital controller for what ever you want to do, HID, MIDI, etc...
 
-##WIP
+## WIP
 
 ### Features
 * 40 digital inputs (24 mm OBSC-24 arcade buttons)
