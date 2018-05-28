@@ -31,5 +31,5 @@ midi_serial_lb: Serial MIDI controller version of base_lb.
 * Update diagrams for default button map.
 * Add a Row / Column mapping image.
 * Create HID versions.
-* Create a hardware debounced versions - will involve a seperate CPLD project done in Verilog.
+* Create a hardware debounced versions - will involve a separate CPLD project done in Verilog (https://github.com/ellisgl/addressable-debouncer-verilog).
 * Maybe move the mapping into their own file?
